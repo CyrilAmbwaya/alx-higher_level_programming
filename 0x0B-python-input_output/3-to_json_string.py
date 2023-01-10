@@ -1,20 +1,15 @@
 #!/usr/bin/python3
-'''  function that reads n lines of a text file (UTF8) and prints it to stdout
-'''
+""" Module that contains a function that returns the JSON
+representation of an object
+"""
+import json
 
 
-def read_lines(filename="", nb_lines=0):
-    ''' function: read_lines
-    '''
-    if filename == "" or type(filename) != str:
-        return
-    if type(nb_lines) != int:
-        return
-    counter = 0
-    with open(filename, "r") as f:
-        for line in f:
-            counter += 1
-            if nb_lines <= 0 or (counter <= nb_lines and nb_lines > 0):
-                print(line, end='')
-            else:
-                break
+def to_json_string(my_obj):
+    """ Function that returns the JSON representation of an object
+    Args:
+        my_obj: object
+    Raises:
+        Exception: when the object can't be encoded
+    """
+    return json.dumps(my_obj)
